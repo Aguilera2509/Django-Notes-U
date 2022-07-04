@@ -81,7 +81,6 @@ WSGI_APPLICATION = 'DescripUser.wsgi.application'
 
 DATABASES = {
     'default': dj_database_url.config(
-        default=config('DATABASE_URL'), 
         conn_max_age=30,
         ssl_require=True
     )
