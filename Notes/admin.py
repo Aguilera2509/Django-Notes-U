@@ -6,6 +6,7 @@ from .models import DataProfessor
 
 class DataProfessorAdmin(admin.ModelAdmin):
     list_display=('name_professor', 'course' ,'number_semester', 'content')
+    readonly_fields=('created',)
 
 
 admin.site.register(DataProfessor, DataProfessorAdmin)

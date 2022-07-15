@@ -30,6 +30,28 @@
                 <button class="btn btn-danger" type="button" data-bs-toggle="modal" data-bs-target="#staticBackdrop">Agregar Comentario</button>
             </div>
 
+            <section class="alert alert-primary" role="alert" style="width: 80%; height: 30%; margin-left: auto; margin-right: auto;">
+                {% if err.name != None %}
+                    <p>Su nota no ha podido ser enviada debido al siguiente error:</p>
+                    <p>{{err.name}}</p>
+                {% endif %}
+                {% if err.semester != None %}
+                    <p>Su nota no ha podido ser enviada debido al siguiente error:</p>
+                    <p>{{err.semester}}</p>
+                {% endif %}
+                {% if err.comment != None %}
+                    <p>Su nota no ha podido ser enviada debido al siguiente error:</p>
+                    <p>{{err.comment}}</p>
+                {% endif %}
+                {% if request.method == 'POST' %}
+                    {% if err.name == None and err.semester == None and err.comment == None %}
+                        <p>Su mensaje ha sido enviado con exito</p>
+                    {% endif %}
+                {% else %}
+                    <p>Eres libre de expresarte como gustes pero se respetuoso por favor :D</p>
+                {% endif %}
+            </section>
+
             <section>
 
                 {% for data in allData %}

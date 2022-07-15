@@ -12,7 +12,6 @@ https://docs.djangoproject.com/en/4.0/ref/settings/
 
 from pathlib import Path
 import os
-import dj_database_url
 from decouple import config
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -23,14 +22,12 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/4.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-#SECRET_KEY = config("SECRET_KEY")
 SECRET_KEY = 'django-insecure-2hkdw(bjdp4z(3v@r6#-@57)@(((ix0n#h5560cmtftzzx41si'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
 ALLOWED_HOSTS = ['*']
-
 
 # Application definition
 
@@ -80,14 +77,15 @@ WSGI_APPLICATION = 'DescripUser.wsgi.application'
 # https://docs.djangoproject.com/en/4.0/ref/settings/#databases
 
 DATABASES = {
-    'default': dj_database_url.config(
-        default=config('DATABASE_URL'),
-        conn_max_age=30,
-        ssl_require=True,
-    )
-    
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': 'dabhua2l6u3hil',
+        'USER': 'hpqtjcrkkrpfxz',
+        'PASSWORD': '62e57a3402cf6818f576d66aa3f8de8636d50fcb0515ebd4793a27c6741eea71',
+        'HOST': 'ec2-34-233-115-14.compute-1.amazonaws.com',
+        'POST': '5432'
+    }
 }
-
 
 # Password validation
 # https://docs.djangoproject.com/en/4.0/ref/settings/#auth-password-validators

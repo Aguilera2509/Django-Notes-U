@@ -7,3 +7,4 @@ class DataProfessor(models.Model):
     number_semester=models.IntegerField()
     course=models.CharField(max_length=20, default=0)
     content=models.CharField(max_length=300)
+    created=models.DateTimeField(auto_now_add=True)
